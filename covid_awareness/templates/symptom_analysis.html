@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .button {
+            background-color: rgba(255, 255, 255, 0);
+            border: #4CAF50 dotted 2px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #4CAF50;
+        }
+
+        .button3 {
+            border: #f44336 dotted 2px;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        /* Red */
+        .button3:hover {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <center><b>Do you have the following symptoms?</b></center>
+    <form method="POST" action="/symtoms-analysis/">
+        {% csrf_token %}
+        <h1>Do you cough often lately?</h1>
+        <input type="radio" id="yes1" name="q1" value="Yes" required>
+        <label for="male">Yes</label><br>
+        <input type="radio" id="no1" name="q1" value="No" required>
+        <label for="female">No</label><br>
+        <h1>Do you have fever?</h1>
+        <input type="radio" id="yes1" name="q2" value="Yes" required>
+        <label for="male">Yes</label><br>
+        <input type="radio" id="no1" name="q2" value="No" required>
+        <label for="female">No</label><br>
+        <h1>Do you have difficulty in breathing lately?</h1>
+        <input type="radio" id="yes1" name="q3" value="Yes" required>
+        <label for="male">Yes</label><br>
+        <input type="radio" id="no1" name="q3" value="No" required>
+        <label for="female">No</label><br>
+        <h1>Do you have body ache?</h1>
+        <input type="radio" id="yes1" name="q4" value="Yes" required>
+        <label for="male">Yes</label><br>
+        <input type="radio" id="no1" name="q4" value="No" required>
+        <label for="female">No</label><br>
+        <input type="submit" value="Submit">
+      </form> 
+
+</body>
+
+</html>
+
+{% endblock %}

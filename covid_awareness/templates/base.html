@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,
+  h1 {
+    font-family: "Raleway", sans-serif
+  }
+
+  body,
+  html {
+    height: 100%
+  }
+
+  .bgimg {
+    background-image: url('https://cutewallpaper.org/21/medical-doctor-wallpaper-hd/Medical-Wallpapers-Top-Free-Medical-Backgrounds-.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button5 {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid #555555;
+  }
+
+  .button5:hover {
+    background-color: white;
+    color: black;
+  }
+
+  /*---------------------------------------------*/
+  .anc {
+    text-decoration: none;
+
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #ffffff;
+    font-weight: 500;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+
+  .anc:focus {
+    outline: none !important;
+  }
+
+  .anc:hover {
+    text-decoration: none;
+    color: #57b846;
+  }
+
+  /*---------------------------------------------*/
+</style>
+
+<body>
+
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div style="width:100%;display: block;padding: 20px;">
+      <div style="display: inline-block;float: left;">
+        <a class="anc" href='/' style="margin-right:50px">Logos</a>
+        <a class="anc" href='/hospital/' style="margin-right:50px">Hospital</a>
+        <a class="anc" href='/symtoms-analysis/' style="margin-right:50px">Symtoms Analysis</a>
+      </div> 
+      {% if request.user.is_authenticated %}
+      <div style="display: inline-block; float: right;">
+        <a href="/profile/">Hello, {{request.user.username}} !</a>
+        &nbsp;&nbsp;&nbsp;
+        <a class="anc" href='/signout/'>Signout</a>
+      </div>
+
+      {% else %}
+      <div style="margin:0;display: inline-block; float: right;">
+        <a class="anc" href='/signin/' style="float:right">Signin</a>
+        <a class="anc" href="#" style="float: right;">&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</a>
+        <a class="anc" href='/signup/' style="float:right">Signup</a>
+      </div>
+      {% endif %}
+    </div>
+    <div style="padding: 20px;">{% block content %}{% endblock %}</div>
+
+
+
+    <div class="w3-display-bottomleft" style="z-index: 1;">
+      Create by Thy Saonan, and Chea Chansineath
+    </div>
+  </div>
+
+</body>
+
+</html>
